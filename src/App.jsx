@@ -4,6 +4,7 @@ import './App.css'
 import FirebaseAuthService from "./FirebaseAuthService";
 import LoginForm from "./components/LoginForm";
 
+// Aplicacion principal
 function App() {
   const [user, setUser] = useState(null);
 
