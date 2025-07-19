@@ -1,17 +1,20 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import firebase from './FirebaseConfig';
+
+import FirebaseAuthService from "./FirebaseAuthService";
+import LoginForm from "./components/LoginForm";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState(null);
+
+  FirebaseAuthService.suscribeToAuthChanges(setUser);
 
   return (
     <>
       <div className="App">
         <div className="title-row">
-          <h1>Firebase recipes</h1>
+          <h1 className='title'>Firebase recipes</h1>
+          <LoginForm existingUser={user}/>
         </div>
       </div>
     </>

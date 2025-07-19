@@ -11,6 +11,14 @@ jobs:
   build_and_preview:
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
+    env:
+      VITE_APIKEY: "${{ secrets.VITE_APIKEY }}"
+      VITE_AUTHDOMAIN: "${{ secrets.VITE_AUTHDOMAIN }}"
+      VITE_PROJECTID: "${{ secrets.VITE_PROJECTID }}"
+      VITE_STORAGEBUCKET: "${{ secrets.VITE_STORAGEBUCKET }}"
+      VITE_MESSAGINGSENDERID: "${{ secrets.VITE_MESSAGINGSENDERID }}"
+      VITE_APPID: "${{ secrets.VITE_APPID }}"
+      VITE_MEASUREMENTID: "${{ secrets.VITE_MEASUREMENTID }}"
     steps:
       - uses: actions/checkout@v4
       - run: npm install
